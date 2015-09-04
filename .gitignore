@@ -1,5 +1,7 @@
 
 
+auxil/
+
 *.fls
 *.log
 *.nav
@@ -7,3 +9,4 @@
 *.synctex.gz
 *.fdb_latexmk
 *.aux
+*.out

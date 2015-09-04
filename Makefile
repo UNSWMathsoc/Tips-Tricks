@@ -1,14 +1,21 @@
 
+TEXCOMP = latexmk
+LATEXFLAGS = -pdf -outdir=auxil
+Mover = cd auxil; mv *.pdf ../pdf/; cd ..
+
 
 handout:
-	latexmk -pdf mathsoc_tipsandtricks.tex
+	$(TEXCOMP) $(LATEXFLAGS) mathsoc_tipsandtricks.tex
+	$(Mover)
 
 presentation:
-	latexmk -pdf
+	$(TEXCOMP) $(LATEXFLAGS) mathsoc_tipsandtricks_presentation.tex
+	$(Mover)
 
 all: handout presentation
-	echo
-
 
 clean:
-	rm *.aux *.log *.nav *.snm *.synctex.gz	*.fdb_latexmk
+	cd aux
+	rm *
+	cd ..
+	#rm *.aux *.log *.nav *.snm *.fls *.out *.fdb_latexmk *.synctex.gz
