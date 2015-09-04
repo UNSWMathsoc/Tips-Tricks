@@ -1,0 +1,457 @@
+\documentclass{beamer}
+
+%\usetheme[alternativetitlepage = true,titleline = true, bullet = circle]{Torino}				
+%\usecolortheme{chameleon}
+
+%\usecolortheme{nouvelle}
+
+\usetheme{Madrid} % My favorite!
+%\usetheme{Boadilla} % Pretty neat, soft color.
+%\usetheme{default}
+%\usetheme{Warsaw}
+%\usetheme{Bergen} % This template has nagivation on the left
+%\usetheme{Frankfurt} % Similar to the default 
+%with an extra region at the top.
+
+
+%\usecolortheme{seahorse} % Simple and clean template
+
+%\usetheme{Darmstadt} % not so good
+% Uncomment the following line if you want %
+% page numbers and using Warsaw theme%
+% \setbeamertemplate{footline}[page number]
+%\setbeamercovered{transparent}
+\setbeamercovered{invisible}
+\setlength{\leftmargini}{40pt}
+% To remove the navigation symbols from 
+% the bottom of slides%
+\setbeamertemplate{navigation symbols}{} 
+%
+\usepackage{graphicx}
+\usepackage{polynom}
+\usepackage{tipa}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{alltt}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\hilb}{\mathcal{H}}
+\newcommand{\dom}{\text{dom}}
+\newcommand{\cs}{C^*}
+\newcommand{\ran}{\text{ran~}}
+
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+
+
+%\usepackage{bm}         % For typesetting bold math (not \mathbold)
+%\logo{\includegraphics[height=0.6cm]{yourlogo.eps}}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE
+
+\title[Extension 2 Tips and Tricks]{Extension 2 Tips and Tricks}
+\author[UNSW Mathsoc]{The UNSW Mathematics Society}
+\institute[UNSW]
+{
+
+\medskip
+
+}
+\date{September 1, 2012}
+% \today will show current date. 
+% Alternatively, you can specify a date.
+%
+\begin{document}
+%
+\begin{frame}[t, plain]
+\titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTENTS
+
+\begin{frame}
+	\frametitle{Contents}
+{\bf
+\begin{enumerate}
+\item[1. ] l'Hopital's rule
+\item[2. ] Advanced Combinatorics
+\item[3. ] Quick Integration by Substitution
+\item[4. ] Heaviside Method
+\item[5. ] General Exam Tips
+\item[6. ] Calculator tricks
+\end{enumerate}
+}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% l'hopital's, p1 
+
+
+\begin{frame}
+	\frametitle{}
+{\bf \LARGE 1. L'Hopital's Rule}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% l'hopital's, p1 
+
+
+\begin{frame}
+\frametitle{1. L'Hopital's rule}
+
+L'Hopital's Rule is a method of evaluating limits involving indeterminate forms. The rule is named after 17th century French mathematician Guillaume de l'Hopital and was published in 1696.\\[2mm]
+In it's simplest form, l'Hopital's rule states that:
+
+	\begin{block}{}
+	\hspace{20mm}if 
+	\[
+\lim_{x\rightarrow c} f(x) = \lim_{x\rightarrow c} g(x) = 0 \text{ or } \pm \infty ,
+\]
+		\hspace{20mm}then
+\[
+\lim_{x\rightarrow c} \frac{f(x)}{g(x)} = \lim_{x\rightarrow c} \frac{f'(x)}{g'(x)}.
+\]
+	\end{block}
+
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% l'hopitals, p2
+
+\begin{frame}{1. L'Hopital's rule (continued)}
+
+Moreover, l'Hopital's rule may be applied iteratively.
+
+	\begin{block}{That is:}
+if	
+\[
+\lim_{x\rightarrow c} f'(x) = \lim_{x\rightarrow c} g'(x) = 0 \text{ or } \pm \infty ,
+\]
+then
+\[
+\lim_{x\rightarrow c} \frac{f(x)}{g(x)} = \lim_{x\rightarrow c} \frac{f'(x)}{g'(x)} = \lim_{x\rightarrow c} \frac{f''(x)}{g''(x)}.
+\]
+	
+	\end{block}	
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% l'hopitals, p3
+
+\begin{frame}{1. L'Hopital's rule (continued)}
+
+Moreover, l'Hopital's rule may be applied iteratively.
+
+	\begin{block}{That is:}
+if	
+\[
+\lim_{x\rightarrow c} f'(x) = \lim_{x\rightarrow c} g'(x) = 0 \text{ or } \pm \infty ,
+\]
+then
+\[
+\lim_{x\rightarrow c} \frac{f(x)}{g(x)} = \lim_{x\rightarrow c} \frac{f'(x)}{g'(x)} = \lim_{x\rightarrow c} \frac{f''(x)}{g''(x)}.
+\]
+	
+	\end{block}	
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% L'Hopitals, p4 (example)
+
+\begin{frame}
+\frametitle{1. L'Hopital's rule: an example}
+			
+			\begin{block}{Example 1:}
+			Evaluate $\displaystyle{ \lim_{x\rightarrow 1} \frac{ 2\log_e x }{x-1}}$.
+			\end{block}
+
+{\bf Solution:} Setting $f(x) = 2 \log_e x, g(x) = x-1$, we note that 
+\[
+\lim_{x\rightarrow c} f(x) = \lim_{x\rightarrow c} g(x) = 0.
+\]
+Then by l'Hopital's rule,
+\[
+\lim_{x\rightarrow 1} \frac{2 \log_e x}{x-1} = \lim_{x\rightarrow 1} \frac{ \frac{d}{dx} (2 \log_e x)}{ \frac{d}{dx} (x-1)} = \lim_{x\rightarrow 1} \frac{\frac{2}{x}}{1} = 2. \thickspace \Box
+\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% L'Hopital's
+
+\begin{frame}
+\frametitle{1. L'Hopital's rule (continued)}
+
+{\bf Useful note:}
+			
+			Identities such as 
+\[
+\lim_{k\rightarrow 0} \frac{\sin x}{x}, \lim_{k\rightarrow 0} \frac{\tan x}{x} 
+\]
+may be computed quickly by l'Hopital's rule (meaning you need to remember less!)
+\begin{align*}
+\lim_{k\rightarrow 0} \frac{\sin x}{x} &= \lim_{k\rightarrow 0} \frac{\cos x}{1} = 1\\[2mm]
+\lim_{k\rightarrow 0} \frac{\tan x}{x} &= \lim_{k\rightarrow 0} \frac{\sec ^2 x}{1} = 1
+\end{align*}
+ Only differentiate again if the limit is again indeterminate $(\frac{0}{0}, \frac{\infty}{\infty}, \frac{-\infty}{-\infty})$.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{1. L'Hopital's rule (continued)}
+
+ {\bf Disclaimer! } l'Hopital's rule only initially appears in university level calculus and is not an "approved method" of the Board of Studies. As such, in examinations please use HSC methods for working and utilise l'Hopital's rule {\it only} for checking work and remembering identities.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{1. l'Hopital's rule: another example}
+			
+			\begin{block}{Example 2:}
+			Evaluate $\displaystyle{ \lim_{x\rightarrow 2} \frac{ x^3 - 2x^2 + 5x - 10 }{ x-2 } }$.
+			\end{block}
+
+ {\bf Solution: HSC method}
+
+ \begin{enumerate}
+
+ \item[Step 1. ] Factorise $p(x) = x^3 - 2x^2 + 5x - 10$. Observe that p(2)=0, then \\
+\polylongdiv{x^3-2x^2+5x-10}{x-2}\\
+So $p(x)= (x-2)(x^2 + 5)$.
+
+ \end{enumerate}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% L'Hopital's
+
+
+\begin{frame}
+\frametitle{1. l'Hopital's rule: another example (continued)}
+
+\begin{enumerate}
+\item[Step 2. ] Thus,
+\begin{align*}
+\lim_{x\rightarrow 2} \frac{ x^3 - 2x^2 + 5x - 10 }{ x-2 } &= \lim_{x\rightarrow 2} \frac{ (x-2)(x^2 + 5)}{ x-2 } \\
+&=  \lim_{x\rightarrow 2} x^2 + 5 = 9. \thickspace \Box
+\end{align*}
+\end{enumerate}	
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{1. l'Hopital's rule: another example (continued)}
+
+ {\bf Alternative solution: l'Hopital's rule}\\[2mm]
+ Note that 
+ \[
+ \lim_{x\rightarrow 2}{ x^3 - 2x^2 + 5x - 10 } =  \lim_{x\rightarrow 2} x -2 = 0.
+ \]
+ Then by L'Hopital's rule,
+ \begin{align*}
+ \lim_{x\rightarrow 2} \frac{ x^3 - 2x^2 + 5x - 10 }{ x-2 } &= \lim_{x\rightarrow 2} \frac{ \frac{d}{dx} ( x^3 - 2x^2 + 5x - 10 )}{\frac{d}{dx} (x-2) }\\[2mm]
+ &=  \lim_{x\rightarrow 2} \frac{ 3x^2 -4x +5 }{ 1 }\\[2mm]
+ &= 3(2)^2 - 4(2) + 5= 9. \thickspace \Box
+ \end{align*}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\begin{frame}
+	\frametitle{}
+{\bf \LARGE 2. Advanced Combinatorics}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}
+\frametitle{2. Advanced Combinatorics (continued)}
+
+{\bf General tips:}
+\begin{itemize}
+\item For these problems, {\it always} set out your working clearly. In most questions, this means listing the choices to be made and the number of options in each case; and then combining these by addition or multiplication to get the final answer.
+\item Remember to count everything! 
+\item  Does it involve arrangements? Are they ordered? If it's probability, is it binomial?
+\end{itemize}
+
+
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% l'hopitals, p2
+
+\begin{frame}{1. L'Hopital's rule (continued)}
+
+Moreover, l'Hopital's rule may be applied iteratively.
+
+	\begin{block}{That is:}
+if	
+\[
+\lim_{x\rightarrow c} f'(x) = \lim_{x\rightarrow c} g'(x) = 0 \text{ or } \pm \infty ,
+\]
+then
+\[
+\lim_{x\rightarrow c} \frac{f(x)}{g(x)} = \lim_{x\rightarrow c} \frac{f'(x)}{g'(x)} = \lim_{x\rightarrow c} \frac{f''(x)}{g''(x)}.
+\]
+	
+	\end{block}	
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% l'hopitals, p3
+
+\begin{frame}{1. L'Hopital's rule (continued)}
+
+Moreover, l'Hopital's rule may be applied iteratively.
+
+	\begin{block}{That is:}
+if	
+\[
+\lim_{x\rightarrow c} f'(x) = \lim_{x\rightarrow c} g'(x) = 0 \text{ or } \pm \infty ,
+\]
+then
+\[
+\lim_{x\rightarrow c} \frac{f(x)}{g(x)} = \lim_{x\rightarrow c} \frac{f'(x)}{g'(x)} = \lim_{x\rightarrow c} \frac{f''(x)}{g''(x)}.
+\]
+	
+	\end{block}	
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% L'Hopitals, p4 (example)
+
+\begin{frame}
+\frametitle{L'Hopital's rule: an example}
+			
+			\begin{block}{Example 1:}
+			Evaluate $\displaystyle{ \lim_{x\rightarrow 1} \frac{ 2\log_e x }{x-1}}$.
+			\end{block}
+
+{\bf Solution:} Setting $f(x) = 2 \log_e x, g(x) = x-1$, we note that 
+\[
+\lim_{x\rightarrow c} f(x) = \lim_{x\rightarrow c} g(x) = 0.
+\]
+Then by l'Hopital's rule,
+\[
+\lim_{x\rightarrow 1} \frac{2 \log_e x}{x-1} = \lim_{x\rightarrow 1} \frac{ \frac{d}{dx} (2 \log_e x)}{ \frac{d}{dx} (x-1)} = \lim_{x\rightarrow 1} \frac{\frac{2}{x}}{1} = 2. \thickspace \Box
+\]
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% L'Hopital's
+
+\begin{frame}
+\frametitle{L'Hopital's rule (continued)}
+
+{\bf Useful note:}
+			
+			Identities such as 
+\[
+\lim_{k\rightarrow 0} \frac{\sin x}{x}, \lim_{k\rightarrow 0} \frac{\tan x}{x} 
+\]
+may be computed quickly by l'Hopital's rule (meaning you need to remember less!)
+\begin{align*}
+\lim_{k\rightarrow 0} \frac{\sin x}{x} &= \lim_{k\rightarrow 0} \frac{\cos x}{1} = 1\\[2mm]
+\lim_{k\rightarrow 0} \frac{\tan x}{x} &= \lim_{k\rightarrow 0} \frac{\sec ^2 x}{1} = 1
+\end{align*}
+ Only differentiate again if the limit is again indeterminate $(\frac{0}{0}, \frac{\infty}{\infty}, \frac{-\infty}{-\infty})$.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{L'Hopital's rule (continued)}
+
+ {\bf Disclaimer! } l'Hopital's rule only initially appears in university level calculus and is not an "approved method" of the Board of Studies. As such, in examinations please use HSC methods for working and utilise l'Hopital's rule {\it only} for checking work and remembering identities.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{L'Hopital's rule: another example}
+			
+			\begin{block}{Example 2:}
+			Evaluate $\displaystyle{ \lim_{x\rightarrow 2} \frac{ x^3 - 2x^2 + 5x - 10 }{ x-2 } }$.
+			\end{block}
+
+ {\bf Solution: HSC method}
+
+ \begin{enumerate}
+
+ \item[Step 1. ] Factorise $p(x) = x^3 - 2x^2 + 5x - 10$. Observe that p(2)=0, then \\
+\polylongdiv{x^3-2x^2+5x-10}{x-2}\\
+So $p(x)= (x-2)(x^2 + 5)$.
+
+ \end{enumerate}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% L'Hopital's
+
+
+\begin{frame}
+\frametitle{l'Hopital's rule: another example (continued)}
+
+\begin{enumerate}
+\item[Step 2. ] Thus,
+\begin{align*}
+\lim_{x\rightarrow 2} \frac{ x^3 - 2x^2 + 5x - 10 }{ x-2 } &= \lim_{x\rightarrow 2} \frac{ (x-2)(x^2 + 5)}{ x-2 } \\
+&=  \lim_{x\rightarrow 2} x^2 + 5 = 9. \thickspace \Box
+\end{align*}
+\end{enumerate}	
+
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{l'Hopital's rule: another example (continued)}
+
+ {\bf Alternative solution: l'Hopital's rule}\\[2mm]
+ Note that 
+ \[
+ \lim_{x\rightarrow 2}{ x^3 - 2x^2 + 5x - 10 } =  \lim_{x\rightarrow 2} x -2 = 0.
+ \]
+ Then by L'Hopital's rule,
+ \begin{align*}
+ \lim_{x\rightarrow 2} \frac{ x^3 - 2x^2 + 5x - 10 }{ x-2 } &= \lim_{x\rightarrow 2} \frac{ \frac{d}{dx} ( x^3 - 2x^2 + 5x - 10 )}{\frac{d}{dx} (x-2) }\\[2mm]
+ &=  \lim_{x\rightarrow 2} \frac{ 3x^2 -4x +5 }{ 1 }\\[2mm]
+ &= 3(2)^2 - 4(2) + 5= 9. \thickspace \Box
+ \end{align*}
+
+\end{frame}
+
+
+
+
+% End of slides
+
+\end{document} 
